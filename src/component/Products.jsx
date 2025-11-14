@@ -37,7 +37,7 @@ function Products({ products = [], selectedRating, search }) {
   }
 
   return (
-    <div className="grid grid-cols-4 gap-6 p-6">
+    <div className="grid grid-cols-3 gap-6 p-6">
       {searchedProducts.map((product) => (
         <ProductCard
           key={product.id}
@@ -50,3 +50,4 @@ function Products({ products = [], selectedRating, search }) {
 }
 
 export default Products;
+
