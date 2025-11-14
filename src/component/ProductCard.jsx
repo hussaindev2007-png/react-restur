@@ -1,6 +1,9 @@
 
 
-function ProductCards({ product ,selectedRating = 0 }) {
+function ProductCards({ product, selectedRating = 0 }) {
+  const totalStars = 5;
+  const starsToShow = selectedRating || product.rating;
+
   return (
     <div className="relative bg-white max-w-sm rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
       
@@ -10,20 +13,19 @@ function ProductCards({ product ,selectedRating = 0 }) {
         alt={product.title}
       />
 
-     
       <div className="px-5 py-4">
         <h2 className="font-semibold text-lg mb-2 truncate">{product.title}</h2>
 
-      
         <div className="flex items-center mb-3">
-          {[...Array(5)].map((_, i) => (
+          {[...Array(totalStars)].map((_, i) => (
             <svg
               key={i}
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               strokeWidth="1.5"
-              stroke="currentColor"
-              className="size-5 text-yellow-400 fill-yellow-400"
+              stroke={i < starsToShow ? "yellow" : "gray"}  
+              fill={i < starsToShow ? "yellow" : "gray"}    
+              className="w-6 h-6 text-yellow-400"
             >
               <path
                 strokeLinecap="round"
@@ -35,17 +37,13 @@ function ProductCards({ product ,selectedRating = 0 }) {
           <span className="ml-1 text-sm text-gray-600">({product.rating})</span>
         </div>
 
-        
         <p className="text-gray-700 text-sm line-clamp-3">
           {product.description}
         </p>
       </div>
 
-     
       <div className="absolute w-full bottom-0 flex justify-between items-center px-5 py-3 bg-white border-t">
-        <span className="font-bold text-lg text-gray-900">
-          ${product.price}
-        </span>
+        <span className="font-bold text-lg text-gray-900">${product.price}</span>
 
         <button className="flex items-center gap-2 border px-3 py-1.5 rounded-lg text-sm font-medium hover:bg-gray-100 transition">
           <svg
@@ -54,7 +52,7 @@ function ProductCards({ product ,selectedRating = 0 }) {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="size-5"
+            className="w-5 h-5"
           >
             <path
               strokeLinecap="round"
@@ -64,9 +62,10 @@ function ProductCards({ product ,selectedRating = 0 }) {
           </svg>
           <span>Add to cart</span>
         </button>
-         
       </div>
     </div>
   );
 }
+
 export default ProductCards;
+
