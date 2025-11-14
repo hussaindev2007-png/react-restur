@@ -155,3 +155,44 @@ hr {
   font-weight: 600;
   color: #fff;
 }
+
+
+/* Range Track remove browser style */
+.custom-slider {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* THUMB (Chrome, Edge, Safari) */
+.custom-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0ea5e9, #000000);
+  border: 2px solid white;
+  box-shadow: 0 0 8px rgba(14, 165, 233, 0.6);
+  transition: all 0.2s ease;
+}
+
+.custom-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(14, 165, 233, 0.8);
+}
+
+/* THUMB (Firefox) */
+.custom-slider::-moz-range-thumb {
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0ea5e9, #000000);
+  border: 2px solid white;
+  box-shadow: 0 0 8px rgba(14, 165, 233, 0.6);
+  transition: all 0.2s ease;
+}
+
+.custom-slider::-moz-range-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(14, 165, 233, 0.8);
+}
+
